@@ -1,0 +1,134 @@
+networks:
+  data-pipeline-net:
+    driver: bridge
+  airbyte_internal:
+    name: airbyte_internal
+    external: true
+
+volumes:
+  minio_data:
+  spark_app_data:
+  spark_warehouse_data:
+  postgres_data:
+  chroma_data:
+  dbt_data:
+
+
+services:
+    # --- Data Lakehouse Storage ---
+  minio:
+    image: minio/minio
+    container_name: minio
+    # Se connecte à notre réseau interne ET au réseau d'Airbyte
+    networks:
+      - data-pipeline-net
+      - airbyte_internal
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=${MINIO_ROOT_USER}
+      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -fsS http://localhost:9000/minio/health/live || exit 1" ]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+      start_period: 10s
+
+  mc:
+    image: minio/mc
+    container_name: mc
+    depends_on:
+      minio:
+        condition: service_healthy
+    networks:
+      - data-pipeline-net
+    entrypoint: >
+      /bin/sh -c "
+        /usr/bin/mc alias set bceao-data http://minio:9000 ${MINIO_ROOT_USER} ${MINIO_ROOT_PASSWORD};
+        /usr/bin/mc mb bceao-data/bronze || true;
+        /usr/bin/mc mb bceao-data/silver || true;
+        /usr/bin/mc mb bceao-data/gold || true;
+        exit 0;
+      "
+
+  # --- Transformation Engine: Spark with Iceberg ---
+  spark-iceberg:
+    image: tabulario/spark-iceberg
+    container_name: spark-iceberg
+    networks:
+      - data-pipeline-net
+    depends_on:
+      - minio
+    volumes:
+      - spark_app_data:/home/iceberg/notebooks/
+      - spark_warehouse_data:/home/iceberg/warehouse/
+    ports:
+      - "8888:8888" # Jupyter
+      - "8081:8080" # Spark UI
+      - "10000:10000" # Thrift Server
+    environment:
+      - AWS_ACCESS_KEY_ID=${MINIO_ROOT_USER}
+      - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD}
+      - SPARK_HOME=/opt/spark
+      - SPARK_MASTER_HOST=spark-iceberg
+      - SPARK_MASTER_PORT=7077
+      - PYSPARK_PYTHON=python3
+
+  rest:
+    image: tabulario/iceberg-rest
+    container_name: iceberg-rest
+    networks:
+      - data-pipeline-net
+    ports:
+      - "8181:8181"
+    environment:
+      - CATALOG_WAREHOUSE=/home/iceberg/warehouse
+      - CATALOG_IO__IMPL=org.apache.iceberg.aws.s3.S3FileIO
+      - CATALOG_S3_ENDPOINT=http://minio:9000
+    volumes:
+      - spark_warehouse_data:/home/iceberg/warehouse/
+
+  # --- Serving Layer: Data Mart ---
+  timescaledb:
+    image: timescale/timescaledb-ha:pg15-latest
+    container_name: timescaledb
+    networks:
+      - data-pipeline-net
+    ports:
+      - "5433:5433"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+  # --- Intelligence Layer: Vector Index ---
+  chromadb:
+    image: chromadb/chroma
+    container_name: chromadb
+    networks:
+      - data-pipeline-net
+    ports:
+      - "8010:8010"
+    volumes:
+      - chroma_data:/chroma/.chroma/
+    environment:
+      - ALLOW_RESET=true
+
+# --- Transformation Orchestrator: dbt ---
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-spark
+    container_name: dbt
+    networks:
+      - data-pipeline-net
+    working_dir: /usr/app/dbt
+    volumes:
+      - ./dbt_project:/usr/app/dbt
+      - ${USERPROFILE}/.dbt/profiles.yml:/root/.dbt/profiles.yml
+    entrypoint: /bin/sh -c "sleep infinity"
