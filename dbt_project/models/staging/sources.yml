@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: bronze
+    description: Bronze layer - raw data from source systems
+    schema: bronze
+    tables:
+      - name: raw_events
+        description: Raw event data from application logs
+        columns:
+          - name: event_id
+            description: Unique identifier for each event
+            tests:
+              - not_null
+          - name: event_type
+            description: Type of event (login, logout, page_view, etc.)
+          - name: user_id
+            description: ID of the user who triggered the event
+          - name: event_timestamp
+            description: Timestamp when the event occurred
+          - name: event_data
+            description: Additional event metadata
+
+      - name: raw_users
+        description: Raw user data from user management system
+        columns:
+          - name: user_id
+            description: Unique identifier for each user
+            tests:
+              - not_null
+              - unique
+          - name: user_name
+            description: User's display name
+          - name: user_email
+            description: User's email address
+          - name: created_at
+            description: Timestamp when the user was created

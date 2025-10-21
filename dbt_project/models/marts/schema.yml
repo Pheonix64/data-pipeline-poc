@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fct_events_enriched
+    description: Fact table containing events enriched with user information
+    columns:
+      - name: event_id
+        description: Unique identifier for each event
+        tests:
+          - not_null
+      - name: event_type
+        description: Type of event
+      - name: event_timestamp
+        description: When the event occurred
+      - name: user_id
+        description: ID of the user who triggered the event
+      - name: user_name
+        description: Name of the user
+      - name: user_email
+        description: Email of the user
+      - name: dbt_loaded_at
+        description: Timestamp when this record was loaded by dbt

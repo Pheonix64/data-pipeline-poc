@@ -1,0 +1,49 @@
+name: 'data_pipeline_poc'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'data_pipeline_poc'
+
+# These configurations specify where dbt should look for different types of files.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+# Configuring models
+models:
+  data_pipeline_poc:
+    # Config applied to all models
+    +materialized: table
+    +file_format: iceberg
+    
+    # Staging models - Bronze to Silver
+    staging:
+      +materialized: table
+      +file_format: iceberg
+      +schema: default_silver
+      
+    # Marts models - Silver to Gold
+    marts:
+      +materialized: table
+      +file_format: iceberg
+      +schema: default_gold
+
+# Seeds configuration
+seeds:
+  data_pipeline_poc:
+    +schema: bronze
+    +file_format: iceberg
+
+# Snapshots configuration
+snapshots:
+  data_pipeline_poc:
+    +target_schema: snapshots
+    +file_format: iceberg
