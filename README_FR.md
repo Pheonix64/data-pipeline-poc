@@ -261,13 +261,17 @@ POSTGRES_PASSWORD=postgres
 ## Prochaines Étapes
 
 Consultez les guides suivants:
-1. [Guide de Démarrage Rapide](./QUICKSTART_FR.md)
-2. [Guide de Transformation Bronze → Silver → Gold](./TRANSFORMATION_GUIDE_FR.md)
-3. [Guide dbt Avancé](./DBT_ADVANCED_FR.md)
-4. [Guide Spark avec Jupyter](./SPARK_JUPYTER_FR.md)
+1. [⚡ Guide de Démarrage Rapide](./QUICKSTART_FR.md)
+2. [🔄 Guide de Transformation Bronze → Silver → Gold](./TRANSFORMATION_GUIDE_FR.md)
+3. [🔗 Guide d'Intégration Airbyte-MinIO](./AIRBYTE_MINIO_INTEGRATION.md)
+4. [📦 Guide de Structure MinIO](./MINIO_STRUCTURE_GUIDE.md)
+5. [✅ Rapport de Vérification du Système](./VERIFICATION_REPORT.md)
+6. [📋 Informations de Version](./VERSION_INFO.md)
+7. [📝 Changelog](./CHANGELOG.md)
 
 ## Support et Ressources
 
 - Documentation Apache Iceberg: https://iceberg.apache.org/
 - Documentation dbt: https://docs.getdbt.com/
 - Documentation Apache Spark: https://spark.apache.org/docs/latest/
+- Documentation MinIO: https://min.io/docs/

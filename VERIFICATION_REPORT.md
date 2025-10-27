@@ -1,6 +1,7 @@
 # Rapport de Vérification du Système - Data Pipeline POC
 
-**Date de vérification**: 21 octobre 2025  
+**Date de vérification**: 27 octobre 2025  
+**Version du projet**: 1.0.0  
 **Statut global**: ✅ **TOUS LES SYSTÈMES OPÉRATIONNELS**
 
 ---

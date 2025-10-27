@@ -1,0 +1,291 @@
+# ====================================================================
+# Data Pipeline POC - Git Ignore File
+# ====================================================================
+# Ce fichier spécifie quels fichiers Git doit ignorer intentionnellement
+# ====================================================================
+
+# --------------------------------------------------------------------
+# Fichiers Sensibles - IMPORTANT
+# --------------------------------------------------------------------
+# Ne jamais commiter de credentials ou secrets
+
+.env
+.env.local
+.env.*.local
+secrets/
+credentials/
+*.key
+*.pem
+*.p12
+*.pfx
+
+
+# --------------------------------------------------------------------
+# Données - Volumes Docker
+# --------------------------------------------------------------------
+# Les données doivent rester locales et ne pas être versionnées
+
+minio_data/
+spark_app_data/
+spark_lakehouse_data/
+postgres_data/
+chroma_data/
+dbt_data/
+airflow_data/
+warehouse/
+lakehouse/
+
+
+# --------------------------------------------------------------------
+# Logs et Fichiers Temporaires
+# --------------------------------------------------------------------
+
+logs/
+*.log
+tmp/
+temp/
+.tmp/
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+
+# --------------------------------------------------------------------
+# dbt Artifacts
+# --------------------------------------------------------------------
+
+dbt_project/target/
+dbt_project/dbt_packages/
+dbt_project/logs/
+dbt_project/.user.yml
+dbt_project/run_results.json
+
+
+# --------------------------------------------------------------------
+# Python
+# --------------------------------------------------------------------
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+
+# --------------------------------------------------------------------
+# Spark
+# --------------------------------------------------------------------
+
+metastore_db/
+derby.log
+spark-warehouse/
+spark-events/
+checkpoint/
+*.parquet
+*.orc
+
+
+# --------------------------------------------------------------------
+# Docker
+# --------------------------------------------------------------------
+
+# Ne pas ignorer docker-compose.yml et Dockerfiles
+# mais ignorer les overrides locaux
+docker-compose.override.yml
+.dockerignore
+
+
+# --------------------------------------------------------------------
+# OS Files
+# --------------------------------------------------------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+
+
+# --------------------------------------------------------------------
+# Editors
+# --------------------------------------------------------------------
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+\#*\#
+.#*
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+
+# --------------------------------------------------------------------
+# Testing
+# --------------------------------------------------------------------
+
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+
+# --------------------------------------------------------------------
+# Documentation Build
+# --------------------------------------------------------------------
+
+site/
+docs/_build/
+docs/.doctrees/
+
+
+# --------------------------------------------------------------------
+# Backup Files
+# --------------------------------------------------------------------
+
+*.backup
+*.bak
+*.old
+*-backup
+*-old
+
+
+# --------------------------------------------------------------------
+# Archives
+# --------------------------------------------------------------------
+# Éviter de versionner de gros fichiers archives
+
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+
+# --------------------------------------------------------------------
+# Certificates & Keys
+# --------------------------------------------------------------------
+
+*.crt
+*.cert
+*.cer
+*.der
+*.p7b
+*.p7c
+*.p7s
+*.pem
+*.key
+*.keystore
+*.jks
+
+
+# --------------------------------------------------------------------
+# Local Configuration Overrides
+# --------------------------------------------------------------------
+
+local.yml
+local.yaml
+config.local.yml
+config.local.yaml
+*.local.conf
+
+
+# ====================================================================
+# Exceptions - Fichiers à Inclure
+# ====================================================================
+# Utilisez ! pour forcer l'inclusion de certains fichiers
+
+# Exemple: forcer l'inclusion d'un fichier spécifique
+# !important-file.txt
+
+# Fichiers d'exemple et templates
+!.env.example
+!config.example.yml
+
+# Documentation
+!README.md
+!docs/
+
+
+# ====================================================================
+# Notes
+# ====================================================================
+#
+# Pour vérifier quels fichiers sont ignorés:
+#   git status --ignored
+#
+# Pour voir si un fichier spécifique est ignoré:
+#   git check-ignore -v <file>
+#
+# Pour forcer l'ajout d'un fichier ignoré:
+#   git add -f <file>
+#
+# ====================================================================
