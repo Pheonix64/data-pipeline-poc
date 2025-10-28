@@ -538,5 +538,5 @@ Après avoir connecté Airbyte à MinIO:
 
 **Besoin d'aide?** Consultez:
 - [Documentation Airbyte](https://docs.airbyte.com/)
-- [Documentation MinIO](https://min.io/docs/)
+- [Documentation MinIO](https://docs.min.io/enterprise/aistor-object-store/?_gl=1*k373es*_gcl_au*Nzk2MzE5NTc1LjE3NTU4ODAwOTM.*_ga*MTc3ODM4ODIyLjE3NTU4NzUwNDM.*_ga_SY0M3KFH50*czE3NjE1NjM4MjUkbzkkZzEkdDE3NjE1NjM4NzEkajE0JGwwJGg4MzExMDMxOTA.)
 - [README_FR.md](./README_FR.md) - Documentation du projet
