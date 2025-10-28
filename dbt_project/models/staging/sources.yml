@@ -35,3 +35,13 @@ sources:
             description: User's email address
           - name: created_at
             description: Timestamp when the user was created
+
+      - name: indicateurs_economiques_uemoa
+        # loaded_at_field: date_chargement 
+        columns:
+          - name: date
+            description: "Date de la donnée (annuelle)"
+            tests:
+              - unique
+              - not_null
+  

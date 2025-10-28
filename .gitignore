@@ -51,6 +51,14 @@ temp/
 *.swo
 *~
 
+# Fichiers SQL temporaires de test
+temp_*.sql
+create_table.sql
+create_uemoa_table.sql
+load_*.sql
+*_new.sql
+test_*.sql
+
 
 # --------------------------------------------------------------------
 # dbt Artifacts

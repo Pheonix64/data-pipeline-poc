@@ -96,6 +96,7 @@ services:
       rest:
         condition: service_started
     volumes:
+      - ./jars:/opt/spark/extra-jars
       - spark_app_data:/home/iceberg/notebooks/
       - spark_lakehouse_data:/home/iceberg/lakehouse/
       - ./spark-defaults.conf:/opt/spark/conf/spark-defaults.conf
@@ -104,6 +105,8 @@ services:
       - "4040:4040" # Spark UI (Thrift Server UI)
       - "10000:10000" # Thrift Server
     environment:
+      - MINIO_ROOT_USER=${MINIO_ROOT_USER}
+      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${MINIO_ROOT_USER}
       - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD}
       - SPARK_HOME=/opt/spark

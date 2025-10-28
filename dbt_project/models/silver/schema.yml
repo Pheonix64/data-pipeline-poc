@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_uemoa_indicators
+    description: "Modèle Silver : Indicateurs économiques UEMOA nettoyés et conformés."
+    columns:
+      - name: date
+        description: "Clé temporelle unique (année)"
+        tests:
+          - unique
+          - not_null
+
+      - name: pib_nominal_milliards_fcfa
+        description: "PIB nominal, doit être positif"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+
+      - name: taux_croissance_reel_pib_pct
+        description: "Taux de croissance, doit être un pourcentage raisonnable"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "BETWEEN -20 AND 20" # Accepte les récessions sévères
+
+      - name: encours_de_la_dette_pct_pib
+        description: "Ratio Dette/PIB en %, doit être positif"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+
+    # Test personnalisé sur l'ensemble du modèle
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "ABS((poids_secteur_primaire_pct + poids_secteur_secondaire_pct + poids_secteur_tertiaire_pct) - 100) < 0.1"
+          description: "La somme des poids des secteurs doit être très proche de 100%"
