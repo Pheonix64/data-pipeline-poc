@@ -37,6 +37,17 @@ lakehouse/
 
 
 # --------------------------------------------------------------------
+# JARs et Dépendances Volumineuses
+# --------------------------------------------------------------------
+# Les JARs dépassent la limite GitHub de 100MB
+# À télécharger manuellement (voir DEPLOYMENT_GUIDE.md)
+
+jars/
+*.jar
+!dbt_project/dbt_packages/**/*.jar
+
+
+# --------------------------------------------------------------------
 # Logs et Fichiers Temporaires
 # --------------------------------------------------------------------
 
