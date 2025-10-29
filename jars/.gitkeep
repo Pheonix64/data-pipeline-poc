@@ -1,0 +1,2 @@
+# Ce fichier permet de versionner le répertoire jars/ même s'il est vide
+# Les fichiers .jar ne sont pas versionnés (voir .gitignore)

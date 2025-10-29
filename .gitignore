@@ -42,9 +42,9 @@ lakehouse/
 # Les JARs dépassent la limite GitHub de 100MB
 # À télécharger manuellement (voir DEPLOYMENT_GUIDE.md)
 
-jars/
-*.jar
-!dbt_project/dbt_packages/**/*.jar
+jars/*.jar
+!jars/README.md
+!jars/.gitkeep
 
 
 # --------------------------------------------------------------------
