@@ -33,6 +33,7 @@ Bienvenue dans la documentation du **Data Pipeline POC BCEAO** ! Ce projet impl�
 |-------|-------------|------------------|---------|
 | [QUICKSTART_FR.md](./QUICKSTART_FR.md) | Installation et premier démarrage | 10 min | 🟢 Débutant |
 | [TRANSFORMATION_GUIDE_FR.md](./TRANSFORMATION_GUIDE_FR.md) | Transformations Bronze/Silver/Gold avec dbt | 30 min | 🟡 Intermédiaire |
+| [UEMOA_TRANSFORMATION_GUIDE_FR.md](./UEMOA_TRANSFORMATION_GUIDE_FR.md) | Transformations données économiques UEMOA | 25 min | 🟡 Intermédiaire |
 | [AIRBYTE_MINIO_INTEGRATION.md](./AIRBYTE_MINIO_INTEGRATION.md) | Intégrer Airbyte avec MinIO | 20 min | 🟡 Intermédiaire |
 | [MINIO_STRUCTURE_GUIDE.md](./MINIO_STRUCTURE_GUIDE.md) | Organisation des buckets MinIO | 15 min | 🟢 Débutant |
 
@@ -61,6 +62,13 @@ Bienvenue dans la documentation du **Data Pipeline POC BCEAO** ! Ce projet impl�
 - Transformations Bronze → Silver
 - Transformations Silver → Gold
 - Exemples dbt et Spark
+
+#### 🏦 Transformer les données UEMOA
+→ [UEMOA_TRANSFORMATION_GUIDE_FR.md](./UEMOA_TRANSFORMATION_GUIDE_FR.md)
+- Indicateurs économiques UEMOA
+- Marts analytiques (Monétaire, Finances Publiques, Commerce Extérieur)
+- KPIs et critères de convergence
+- Tableaux de bord BCEAO
 
 #### 📦 Organiser mes données dans MinIO
 → [MINIO_STRUCTURE_GUIDE.md](./MINIO_STRUCTURE_GUIDE.md)
@@ -109,6 +117,7 @@ Documentation/
 │
 ├── 📘 GUIDES PRATIQUES
 │   ├── TRANSFORMATION_GUIDE_FR.md     # Transformations de données
+│   ├── UEMOA_TRANSFORMATION_GUIDE_FR.md # Transformations données UEMOA ⭐
 │   ├── AIRBYTE_MINIO_INTEGRATION.md   # Intégration Airbyte
 │   └── MINIO_STRUCTURE_GUIDE.md       # Organisation MinIO
 │

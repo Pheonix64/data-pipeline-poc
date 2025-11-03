@@ -263,11 +263,12 @@ POSTGRES_PASSWORD=postgres
 Consultez les guides suivants:
 1. [⚡ Guide de Démarrage Rapide](./QUICKSTART_FR.md)
 2. [🔄 Guide de Transformation Bronze → Silver → Gold](./TRANSFORMATION_GUIDE_FR.md)
-3. [🔗 Guide d'Intégration Airbyte-MinIO](./AIRBYTE_MINIO_INTEGRATION.md)
-4. [📦 Guide de Structure MinIO](./MINIO_STRUCTURE_GUIDE.md)
-5. [✅ Rapport de Vérification du Système](./VERIFICATION_REPORT.md)
-6. [📋 Informations de Version](./VERSION_INFO.md)
-7. [📝 Changelog](./CHANGELOG.md)
+3. [🏦 Guide de Transformation des Données UEMOA](./UEMOA_TRANSFORMATION_GUIDE_FR.md) ⭐ **Nouveau**
+4. [🔗 Guide d'Intégration Airbyte-MinIO](./AIRBYTE_MINIO_INTEGRATION.md)
+5. [📦 Guide de Structure MinIO](./MINIO_STRUCTURE_GUIDE.md)
+6. [✅ Rapport de Vérification du Système](./VERIFICATION_REPORT.md)
+7. [📋 Informations de Version](./VERSION_INFO.md)
+8. [📝 Changelog](./CHANGELOG.md)
 
 ## Support et Ressources
 

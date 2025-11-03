@@ -429,6 +429,10 @@ All indicators are stored at the date level and transformed through the medallio
 For the complete technical documentation in French, see:
 - **[README_FR.md](./README_FR.md)** - Complete architecture and setup guide
 
+### Transformation Guides
+
+- [🏦 UEMOA Data Transformations](./UEMOA_TRANSFORMATION_GUIDE_FR.md) - Economic indicators (FR) ⭐ **New**
+
 ### Integration Guides
 
 - [🔗 Airbyte-MinIO Integration](./AIRBYTE_MINIO_INTEGRATION.md) - Connect Airbyte to this pipeline

@@ -161,6 +161,7 @@ docker exec spark-iceberg beeline -u jdbc:hive2://localhost:10000 \
 | [⚡ QUICKSTART_FR.md](./QUICKSTART_FR.md) | Guide de démarrage | 15 min |
 | [📘 README_FR.md](./README_FR.md) | Documentation complète | 45 min |
 | [🔄 TRANSFORMATION_GUIDE_FR.md](./TRANSFORMATION_GUIDE_FR.md) | Guide transformations | 30 min |
+| [🏦 UEMOA_TRANSFORMATION_GUIDE_FR.md](./UEMOA_TRANSFORMATION_GUIDE_FR.md) | Guide UEMOA | 25 min |
 | [📋 VERSION_INFO.md](./VERSION_INFO.md) | Informations de version | 20 min |
 
 ---

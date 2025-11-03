@@ -367,6 +367,13 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 
 ### 🔄 Améliorations Futures Possibles
 
+#### ✨ Nouvelles Fonctionnalités (3 novembre 2025)
+- [x] Guide de transformation des données UEMOA
+- [x] Modèles dbt pour indicateurs économiques UEMOA
+- [x] 5 marts analytiques Gold (Monétaire, Finances Publiques, Commerce Extérieur, Stabilité Externe, Croissance YoY)
+- [x] Intégration des critères de convergence UEMOA
+- [x] Tableaux de bord économiques
+
 #### En Considération
 - [ ] Intégration Airflow pour orchestration avancée
 - [ ] Ajout de Great Expectations pour data quality
