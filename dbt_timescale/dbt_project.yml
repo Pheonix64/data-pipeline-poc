@@ -1,0 +1,35 @@
+name: 'data_pipeline_timescale'
+version: '1.0.0'
+config-version: 2
+
+# Profil pour TimescaleDB
+profile: 'data_pipeline_timescale'
+
+# Chemins des fichiers
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuration des modèles
+models:
+  data_pipeline_timescale:
+    # Tous les modèles sont des tables PostgreSQL
+    +materialized: table
+    +schema: public
+    
+    # Datamarts UEMOA copiés depuis Gold
+    uemoa_datamarts:
+      +materialized: table
+      +schema: public
+      +tags: ['uemoa', 'timescaledb']
+
+# Variables
+vars:
+  # Connexion JDBC pour accéder à Spark depuis PostgreSQL
+  spark_jdbc_url: "jdbc:hive2://spark-iceberg:10000"

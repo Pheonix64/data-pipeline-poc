@@ -22,3 +22,19 @@ data_pipeline_poc:
       connect_retries: 3
       connect_timeout: 10
       retry_all: true
+
+# Profil PostgreSQL/TimescaleDB pour les datamarts UEMOA
+data_pipeline_timescale:
+  target: timescale
+  outputs:
+    timescale:
+      type: postgres
+      host: timescaledb
+      port: 5433
+      user: postgres
+      password: PostgresPass123
+      dbname: monetary_policy_dm
+      schema: public
+      threads: 4
+      keepalives_idle: 0
+      connect_timeout: 10

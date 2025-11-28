@@ -34,6 +34,7 @@ Bienvenue dans la documentation du **Data Pipeline POC BCEAO** ! Ce projet impl�
 | [QUICKSTART_FR.md](./QUICKSTART_FR.md) | Installation et premier démarrage | 10 min | 🟢 Débutant |
 | [TRANSFORMATION_GUIDE_FR.md](./TRANSFORMATION_GUIDE_FR.md) | Transformations Bronze/Silver/Gold avec dbt | 30 min | 🟡 Intermédiaire |
 | [UEMOA_TRANSFORMATION_GUIDE_FR.md](./UEMOA_TRANSFORMATION_GUIDE_FR.md) | Transformations données économiques UEMOA | 25 min | 🟡 Intermédiaire |
+| [COPY_UEMOA_TO_TIMESCALE.md](./COPY_UEMOA_TO_TIMESCALE.md) | Copie datamarts UEMOA vers TimescaleDB | 15 min | 🟡 Intermédiaire |
 | [AIRBYTE_MINIO_INTEGRATION.md](./AIRBYTE_MINIO_INTEGRATION.md) | Intégrer Airbyte avec MinIO | 20 min | 🟡 Intermédiaire |
 | [MINIO_STRUCTURE_GUIDE.md](./MINIO_STRUCTURE_GUIDE.md) | Organisation des buckets MinIO | 15 min | 🟢 Débutant |
 
@@ -42,6 +43,7 @@ Bienvenue dans la documentation du **Data Pipeline POC BCEAO** ! Ce projet impl�
 | Document | Description | Utilité |
 |----------|-------------|---------|
 | [VERIFICATION_REPORT.md](./VERIFICATION_REPORT.md) | État du système et vérifications | Dépannage et monitoring |
+| [VERIFICATION_COPIE_UEMOA.md](./VERIFICATION_COPIE_UEMOA.md) | Vérification copie UEMOA vers TimescaleDB | Audit et corrections |
 
 ---
 
@@ -69,6 +71,14 @@ Bienvenue dans la documentation du **Data Pipeline POC BCEAO** ! Ce projet impl�
 - Marts analytiques (Monétaire, Finances Publiques, Commerce Extérieur)
 - KPIs et critères de convergence
 - Tableaux de bord BCEAO
+
+#### 🔄 Copier les datamarts UEMOA vers TimescaleDB
+→ [COPY_UEMOA_TO_TIMESCALE.md](./COPY_UEMOA_TO_TIMESCALE.md)
+- Installation du driver PostgreSQL JDBC
+- Copie des 5 tables Gold UEMOA
+- Configuration et vérification
+- Dépannage et résolution de problèmes
+- ✅ Scripts testés et validés
 
 #### 📦 Organiser mes données dans MinIO
 → [MINIO_STRUCTURE_GUIDE.md](./MINIO_STRUCTURE_GUIDE.md)
@@ -118,13 +128,15 @@ Documentation/
 ├── 📘 GUIDES PRATIQUES
 │   ├── TRANSFORMATION_GUIDE_FR.md     # Transformations de données
 │   ├── UEMOA_TRANSFORMATION_GUIDE_FR.md # Transformations données UEMOA ⭐
+│   ├── COPY_UEMOA_TO_TIMESCALE.md     # Copie UEMOA vers TimescaleDB ⭐
 │   ├── AIRBYTE_MINIO_INTEGRATION.md   # Intégration Airbyte
 │   └── MINIO_STRUCTURE_GUIDE.md       # Organisation MinIO
 │
 ├── 📋 RÉFÉRENCE
 │   ├── VERSION_INFO.md                # Informations de version
 │   ├── CHANGELOG.md                   # Historique des modifications
-│   └── VERIFICATION_REPORT.md         # Rapport de vérification
+│   ├── VERIFICATION_REPORT.md         # Rapport de vérification
+│   └── VERIFICATION_COPIE_UEMOA.md    # Vérification copie UEMOA
 │
 └── 📚 MÉTA
     └── DOCUMENTATION_INDEX.md         # Ce fichier
@@ -214,12 +226,13 @@ Consultez d'abord :
 
 | Métrique | Valeur |
 |----------|--------|
-| Nombre de documents | 9 |
-| Pages totales | ~50+ pages |
+| Nombre de documents | 11 |
+| Pages totales | ~60+ pages |
 | Langues | Français, Anglais |
-| Exemples de code | 100+ |
-| Commandes shell | 50+ |
+| Exemples de code | 120+ |
+| Commandes shell | 60+ |
 | Diagrammes | 3 |
+| Scripts opérationnels | 3 (UEMOA → TimescaleDB) |
 
 ---
 
@@ -282,6 +295,7 @@ Utilisez cette checklist pour vous assurer d'avoir lu les documents nécessaires
 
 ### Intégrations
 - [ ] Lire AIRBYTE_MINIO_INTEGRATION.md si utilisation d'Airbyte
+- [ ] Lire COPY_UEMOA_TO_TIMESCALE.md pour copie vers TimescaleDB
 
 ### Maintenance
 - [ ] Consulter CHANGELOG.md pour les mises à jour
