@@ -316,8 +316,8 @@ docker-compose down -v
 Maintenant que votre système est opérationnel:
 
 1. Consultez le [Guide de Transformation Bronze → Silver → Gold](./TRANSFORMATION_GUIDE_FR.md)
-2. Explorez le [Guide dbt Avancé](./DBT_ADVANCED_FR.md)
-3. Apprenez à utiliser [Spark avec Jupyter](./SPARK_JUPYTER_FR.md)
+2. Explorez la [documentation officielle dbt](https://docs.getdbt.com/) pour des techniques avancées
+3. Consultez le [Guide de Transformation](./TRANSFORMATION_GUIDE_FR.md) pour des exemples Spark avec Jupyter
 
 ## Ressources Supplémentaires
 

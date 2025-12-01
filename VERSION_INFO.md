@@ -18,7 +18,7 @@ Ce projet implémente une architecture **Data Lakehouse** moderne utilisant le p
 
 | Composant | Version | Rôle |
 |-----------|---------|------|
-| **Apache Iceberg** | 1.4.x | Format de table ouvert avec support ACID |
+| **Apache Iceberg** | 1.8.1 | Format de table ouvert avec support ACID |
 | **Apache Spark** | 3.5.x | Moteur de traitement distribué |
 | **dbt-spark** | 1.9.0 | Orchestration des transformations SQL |
 | **MinIO** | Latest | Stockage objet compatible S3 |
@@ -49,6 +49,8 @@ Ce projet implémente une architecture **Data Lakehouse** moderne utilisant le p
 ✅ bronze                  → Données brutes (raw_events, raw_users)
 ✅ default_silver          → Données nettoyées (stg_events, stg_users)
 ✅ default_gold            → Données analytiques (fct_events_enriched)
+
+Note: dbt utilise le préfixe "default_" + nom du schema configuré
 ```
 
 ### Tables Principales
@@ -120,7 +122,7 @@ default_gold.fct_events_enriched (
 | Jupyter Notebook | 8888 | Notebooks interactifs |
 | Spark Thrift Server | 10000 | JDBC/ODBC endpoint |
 | Iceberg REST | 8181 | Catalogue Iceberg REST |
-| TimescaleDB | 5433 | PostgreSQL/TimescaleDB |
+| TimescaleDB | 5432 (interne) / 5433 (externe) | PostgreSQL/TimescaleDB |
 | ChromaDB | 8010 | API ChromaDB |
 
 ### Variables d'Environnement

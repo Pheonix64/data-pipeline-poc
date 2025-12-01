@@ -770,4 +770,4 @@ Ce guide vous a montré comment:
 - ✅ Utiliser dbt et Spark/Jupyter
 - ✅ Suivre les bonnes pratiques
 
-**Prochaine étape**: Consultez le [Guide dbt Avancé](./DBT_ADVANCED_FR.md) pour des transformations plus complexes!
+**Prochaine étape**: Consultez la [documentation officielle dbt](https://docs.getdbt.com/) pour des transformations plus complexes!

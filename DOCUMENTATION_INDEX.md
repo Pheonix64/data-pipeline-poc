@@ -45,6 +45,14 @@ Bienvenue dans la documentation du **Data Pipeline POC BCEAO** ! Ce projet impl�
 | [VERIFICATION_REPORT.md](./VERIFICATION_REPORT.md) | État du système et vérifications | Dépannage et monitoring |
 | [VERIFICATION_COPIE_UEMOA.md](./VERIFICATION_COPIE_UEMOA.md) | Vérification copie UEMOA vers TimescaleDB | Audit et corrections |
 
+### Référence et Support
+
+| Document | Description | Temps de lecture | Niveau |
+|----------|-------------|------------------|---------|
+| [VALIDATION_CHECKLIST.md](./VALIDATION_CHECKLIST.md) | Procédure complète de validation d'installation | 20 min | 🟢 Débutant |
+| [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) | Guide consolidé de dépannage | 30 min | 🟡 Intermédiaire |
+| [FAQ.md](./FAQ.md) | Questions fréquentes et réponses rapides | 15 min | 🟢 Débutant |
+
 ---
 
 ## 🎯 Par Cas d'Usage
@@ -94,10 +102,25 @@ Bienvenue dans la documentation du **Data Pipeline POC BCEAO** ! Ce projet impl�
 - Exemples de pipelines
 
 #### 🐛 Résoudre un problème
-→ [QUICKSTART_FR.md - Section Dépannage](./QUICKSTART_FR.md#résolution-des-problèmes-courants)
+→ [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) ⭐
+- Problèmes Docker et services
+- Erreurs de connexion
+- Problèmes dbt, Spark, Iceberg
+- Erreurs MinIO, UEMOA, TimescaleDB
+- Performance et réseau
+
+→ [FAQ.md](./FAQ.md)
+- Questions fréquentes
+- Réponses rapides
+- Conseils pratiques
+
+→ [VALIDATION_CHECKLIST.md](./VALIDATION_CHECKLIST.md)
+- Vérification d'installation
+- Tests système complet
+- Scoring de validation
+
 → [VERIFICATION_REPORT.md](./VERIFICATION_REPORT.md)
-- Problèmes courants et solutions
-- Vérification de l'état du système
+- État actuel du système
 - Logs et diagnostics
 
 #### 📊 Comprendre l'architecture
@@ -123,7 +146,8 @@ Documentation/
 ├── 🌟 ESSENTIELS (Lire en premier)
 │   ├── README.md                      # Vue d'ensemble (EN)
 │   ├── README_FR.md                   # Documentation complète (FR)
-│   └── QUICKSTART_FR.md               # Guide de démarrage rapide
+│   ├── QUICKSTART_FR.md               # Guide de démarrage rapide
+│   └── START_HERE.md                  # Point d'entrée navigation
 │
 ├── 📘 GUIDES PRATIQUES
 │   ├── TRANSFORMATION_GUIDE_FR.md     # Transformations de données
@@ -138,8 +162,14 @@ Documentation/
 │   ├── VERIFICATION_REPORT.md         # Rapport de vérification
 │   └── VERIFICATION_COPIE_UEMOA.md    # Vérification copie UEMOA
 │
+├── 🆘 SUPPORT ET DÉPANNAGE
+│   ├── VALIDATION_CHECKLIST.md        # Checklist de validation ⭐
+│   ├── TROUBLESHOOTING.md             # Guide de dépannage ⭐
+│   └── FAQ.md                         # Questions fréquentes ⭐
+│
 └── 📚 MÉTA
-    └── DOCUMENTATION_INDEX.md         # Ce fichier
+    ├── DOCUMENTATION_INDEX.md         # Ce fichier
+    └── AUDIT_DOCUMENTATION.md         # Audit de cohérence documentaire
 ```
 
 ---
@@ -207,10 +237,12 @@ docker exec spark-iceberg beeline -u jdbc:hive2://localhost:10000 -e "SHOW NAMES
 
 ## 🆘 Aide et Support
 
-### Problème Courant ?
+### Aide et Support
 Consultez d'abord :
-1. [QUICKSTART_FR.md - Dépannage](./QUICKSTART_FR.md#résolution-des-problèmes-courants)
-2. [VERIFICATION_REPORT.md](./VERIFICATION_REPORT.md) - Vérifier l'état du système
+1. [FAQ.md](./FAQ.md) - Questions fréquentes et réponses rapides ⭐
+2. [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) - Guide consolidé de dépannage ⭐
+3. [VALIDATION_CHECKLIST.md](./VALIDATION_CHECKLIST.md) - Vérifier l'état du système ⭐
+4. [VERIFICATION_REPORT.md](./VERIFICATION_REPORT.md) - Rapport de vérification système
 
 ### Comprendre un Message d'Erreur ?
 - **dbt** : [TRANSFORMATION_GUIDE_FR.md](./TRANSFORMATION_GUIDE_FR.md)
@@ -226,13 +258,14 @@ Consultez d'abord :
 
 | Métrique | Valeur |
 |----------|--------|
-| Nombre de documents | 11 |
-| Pages totales | ~60+ pages |
+| Nombre de documents | 14 |
+| Pages totales | ~150+ pages |
 | Langues | Français, Anglais |
-| Exemples de code | 120+ |
-| Commandes shell | 60+ |
+| Exemples de code | 150+ |
+| Commandes shell | 80+ |
 | Diagrammes | 3 |
 | Scripts opérationnels | 3 (UEMOA → TimescaleDB) |
+| Guides de support | 3 (FAQ, Troubleshooting, Validation) |
 
 ---
 

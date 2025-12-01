@@ -44,10 +44,8 @@
 ```
 ✅ bronze                  (Couche de données brutes)
 ✅ default                 (Namespace par défaut)
-✅ default_default_gold    (Couche Gold - dbt)
-✅ default_default_silver  (Couche Silver - dbt)
-✅ default_gold            (Couche Gold - alternative)
-✅ default_silver          (Couche Silver - alternative)
+✅ default_gold            (Couche Gold - dbt)
+✅ default_silver          (Couche Silver - dbt)
 ```
 
 **Total**: 6 namespaces créés
@@ -63,14 +61,14 @@ Namespace: bronze
 
 #### 🥈 Couche Silver (Données Nettoyées)
 ```
-Namespace: default_default_silver
+Namespace: default_silver
 ├── stg_events   (40 lignes)   ✅
 └── stg_users    (6 lignes)    ✅
 ```
 
 #### 🥇 Couche Gold (Données Analytiques)
 ```
-Namespace: default_default_gold
+Namespace: default_gold
 └── fct_events_enriched (160 lignes)   ✅
 ```
 

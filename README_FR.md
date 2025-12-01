@@ -86,8 +86,9 @@ Ce projet implémente un **pipeline de données moderne** (Data Lakehouse) utili
 
 ### 5. **TimescaleDB**
 - **Rôle**: Base de données pour séries temporelles
-- **Port**: 5433
+- **Port**: 5432 (interne Docker) / 5433 (accès externe depuis hôte)
 - **Usage**: Données time-series pour analyses rapides
+- **Note**: Utiliser port 5432 pour connexions entre conteneurs, port 5433 depuis Windows
 
 ### 6. **ChromaDB**
 - **Rôle**: Base de données vectorielle
